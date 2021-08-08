@@ -1,0 +1,7 @@
+secret_key.txt
+*.pyc
+__pycache__
+.idea
+db.sqlite3
+generator*.pkl
+tokenizer37k.pkl

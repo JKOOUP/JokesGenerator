@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Генератор юмооресок
+{% endblock %}
+
+{% block content %}
+    <h2>Сгенерированные анекдоты</h2>
+    {% for joke, generator in jokes_wg %}
+        <div class="card mb-3">
+            <div class="card-header">
+                Юмореска №{{ joke.id }}
+            </div>
+            <div class="card-body">
+                <p class="card-text"> {{ joke.text|truncatewords:50 }}</p>
+            </div>
+            <a href="{% url 'view_joke' joke.id %}" class="btn btn-primary">Показать полностью</a>
+            <div class="card-footer text-muted">
+                Сгенерировано с {{ generator.short_name }} (размер датасета: {{ generator.dataset_size }}, количество n-грам: {{ generator.num_grams }}) <br>
+                Описание: {{ generator.description }} <br>
+                {{ joke.date|date:"d-m-Y H:m" }}
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Сгенерировать
+{% endblock %}
+
+{% block content %}
+    <h2>Сгенерировать анекдот</h2>
+    <form action="{% url 'generate' %}" method="POST">
+        {% csrf_token %}
+
+        {{ forms.non_field.errors }}
+        {{ form.as_p }}
+        <button class="btn btn-primary btn-block">Сгенерировать</button>
+
+    </form>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Сгенерированный анекдот
+{% endblock %}
+
+{% block content %}
+    <form action="{% url 'view_generated' generator_id max_words start %}" method="GET">
+        {% csrf_token %}
+
+        <div class="card">
+            <div class="card-header">
+                Текст анекдота:
+            </div>
+            <div class="card-body">
+                <p class="card-text"> {{ text|linebreaksbr }}</p>
+            </div>
+        </div>
+
+        <div align="center">
+            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                <a class="btn btn-primary" href="{% url 'main_page' %}" role="button">Вернуться на главную</a>
+                <a class="btn btn-primary" href="{% url 'save_generated' generator_id text %}">Сохранить</a>
+                <a class="btn btn-primary" href={% url 'view_generated' generator_id max_words start %} role="button">Сгенерировать еще</a>
+            </div>
+        </div>
+
+    </form>
+{% endblock %}
