@@ -1,17 +1,17 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    Сгенерировать
+    Generate joke
 {% endblock %}
 
 {% block content %}
-    <h2>Сгенерировать анекдот</h2>
+    <h2>Generate joke</h2>
     <form action="{% url 'generate' %}" method="POST">
         {% csrf_token %}
 
         {{ forms.non_field.errors }}
         {{ form.as_p }}
-        <button class="btn btn-primary btn-block">Сгенерировать</button>
+        <button class="btn btn-primary btn-block">Generate</button>
 
     </form>
 {% endblock %}

@@ -1,23 +1,23 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    Просмотр анекдота
+    View joke
 {% endblock %}
 
 {% block content %}
-    <h2>Просмотр текста:</h2>
+    <h2>View joke</h2>
     <div class="card">
         <div class="card-header">
-            Текст анекдота №{{ joke.id }}:
+            Joke text №{{ joke.id }}:
         </div>
         <div class="card-body">
             <p class="card-text"> {{ joke.text|linebreaksbr }}</p>
         </div>
         <div class="card-footer text-muted">
-            Сгенерировано с {{ generator }} (размер датасета: {{ generator.dataset_size }}, количество n-грам: {{ generator.num_grams }}) <br>
-            Описание: {{ generator.description }} <br>
+            Generated with {{ generator.short_name }} (number of texts: {{ generator.dataset_size }}, number of grams: {{ generator.num_grams }}) <br>
+            Description: {{ generator.description }} <br>
             {{ joke.date|date:"d-m-Y H:m" }}
         </div>
-        <a class="btn btn-primary" href={% url 'main_page' %} role="button">На главную</a>
+        <a class="btn btn-primary" href={% url 'main_page' %} role="button">Home</a>
     </div>
 {% endblock %}

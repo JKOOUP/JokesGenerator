@@ -1,17 +1,17 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    Добавить генератор
+    Train generator
 {% endblock %}
 
 {% block content %}
-    <h2>Добавить генератор</h2>
+    <h2>Train generator</h2>
     <form enctype="multipart/form-data" action="{% url 'add_generator' %}" method="POST">
         {% csrf_token %}
 
         {{ form.non_field.errors }}
         {{ form.as_p }}
-        <button class="btn btn-primary btn-block">Обучить и добавить генератор</button>
+        <button class="btn btn-primary btn-block">Train and save generator</button>
 
     </form>
 {% endblock %}
